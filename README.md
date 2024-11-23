@@ -15,23 +15,25 @@ Si se desea ejecutar un feature en especifico utilizar tag "tags" que sirve para
 
 # Ejecutar automatización con el TAGS
 
-@RunWith(CucumberWithSerenity.class)
+@RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "stepdefinitions",
-        plugin = {"pretty"},
-        tags = "@signup"
+        plugin = {"pretty", "html:target/cucumber-reports.html"},
+        tags="@nombredelScenario"
+
 )
 public class TestRunner {
 }
 
 # Ejecutar automatización sin el tag
 
-@RunWith(CucumberWithSerenity.class)
+@RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "stepdefinitions",
-        plugin = {"pretty"}
+        plugin = {"pretty", "html:target/cucumber-reports.html"}
+
 )
 public class TestRunner {
 }
